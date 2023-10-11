@@ -1,6 +1,6 @@
 import java.io.*;
 
-public class SpecialDecimal {
+public class SpecialPrime {
     static int N;
 
     public static void main(String[] args) throws IOException {
@@ -14,17 +14,17 @@ public class SpecialDecimal {
 
     static void DFS(int num, int leng) {
         if(leng == N) {
-            if(isDecimal(num))
+            if(isPrime(num))
                 System.out.println(num);
             return;
         }
         for(int i = 1; i < 10; i += 2) {
-            if(isDecimal(num * 10 + i))
+            if(isPrime(num * 10 + i))
                 DFS(num * 10 + i, leng + 1);
         }
     }
 
-    static boolean isDecimal(int num) {
+    static boolean isPrime(int num) {
         for(int i = 2; i <= Math.sqrt(num); i++)
             if(num % i == 0)
                 return false;
